@@ -243,7 +243,7 @@ pub const cpu = struct {
         }),
     };
     pub const esp32_s2 = CpuModel{
-        .name = "esp32-s2",
+        .name = "esp32_s2",
         .llvm_name = "esp32-s2",
         .features = featureSet(&[_]Feature{
             .density,
