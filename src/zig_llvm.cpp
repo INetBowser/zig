@@ -1218,6 +1218,7 @@ static_assert((Triple::ArchType)ZigLLVM_thumbeb == Triple::thumbeb, "");
 static_assert((Triple::ArchType)ZigLLVM_x86 == Triple::x86, "");
 static_assert((Triple::ArchType)ZigLLVM_x86_64 == Triple::x86_64, "");
 static_assert((Triple::ArchType)ZigLLVM_xcore == Triple::xcore, "");
+static_assert((Triple::ArchType)ZigLLVM_xtensa == Triple::xtensa, "");
 static_assert((Triple::ArchType)ZigLLVM_nvptx == Triple::nvptx, "");
 static_assert((Triple::ArchType)ZigLLVM_nvptx64 == Triple::nvptx64, "");
 static_assert((Triple::ArchType)ZigLLVM_le32 == Triple::le32, "");

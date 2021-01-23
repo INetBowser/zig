@@ -52,6 +52,7 @@ pub fn targetTriple(allocator: *Allocator, target: std.Target) ![:0]u8 {
         .i386 => "i386",
         .x86_64 => "x86_64",
         .xcore => "xcore",
+        .xtensa => "xtensa",
         .nvptx => "nvptx",
         .nvptx64 => "nvptx64",
         .le32 => "le32",

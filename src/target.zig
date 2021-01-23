@@ -262,6 +262,7 @@ pub fn archToLLVM(arch_tag: std.Target.Cpu.Arch) llvm.ArchType {
         .i386 => .x86,
         .x86_64 => .x86_64,
         .xcore => .xcore,
+        .xtensa => .xtensa,
         .nvptx => .nvptx,
         .nvptx64 => .nvptx64,
         .le32 => .le32,

@@ -123,6 +123,7 @@ elseif(ZIG_USE_LLVM_CONFIG)
   NEED_TARGET("WebAssembly")
   NEED_TARGET("X86")
   NEED_TARGET("XCore")
+  NEED_TARGET("Xtensa")
 
   if(ZIG_STATIC_LLVM)
     execute_process(
@@ -190,6 +191,14 @@ else()
       c:\\msys64\\mingw64\\lib)
     set(LLVM_LIBRARIES ${LLVM_LIBRARIES} ${LLVM_${_prettylibname_}_LIB})
   endmacro(FIND_AND_ADD_LLVM_LIB)
+
+  # Xtensa LLVM
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaDisassembler)
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaCodeGen)
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaAsmParser)
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaDesc)
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaUtils)
+  FIND_AND_ADD_LLVM_LIB(LLVMXtensaInfo)
 
   # This list can be re-generated with `llvm-config --libfiles` and then
   # reformatting using your favorite text editor. Note we do not execute

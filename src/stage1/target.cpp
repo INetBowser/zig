@@ -47,6 +47,7 @@ static const ZigLLVM_ArchType arch_list[] = {
     ZigLLVM_x86,            // X86: i[3-9]86
     ZigLLVM_x86_64,         // X86-64: amd64, x86_64
     ZigLLVM_xcore,          // XCore: xcore
+    ZigLLVM_xtensa,         // Tensilica Xtensa
     ZigLLVM_nvptx,          // NVPTX: 32-bit
     ZigLLVM_nvptx64,        // NVPTX: 64-bit
     ZigLLVM_le32,           // le32: generic little-endian 32-bit CPU (PNaCl)
@@ -495,6 +496,7 @@ uint32_t target_arch_pointer_bit_width(ZigLLVM_ArchType arch) {
         case ZigLLVM_thumbeb:
         case ZigLLVM_x86:
         case ZigLLVM_xcore:
+        case ZigLLVM_xtensa:
         case ZigLLVM_amdil:
         case ZigLLVM_hsail:
         case ZigLLVM_spir:
@@ -560,6 +562,7 @@ uint32_t target_arch_largest_atomic_bits(ZigLLVM_ArchType arch) {
         case ZigLLVM_thumbeb:
         case ZigLLVM_x86:
         case ZigLLVM_xcore:
+        case ZigLLVM_xtensa:
         case ZigLLVM_amdil:
         case ZigLLVM_hsail:
         case ZigLLVM_spir:
@@ -801,6 +804,7 @@ const char *arch_stack_pointer_register_name(ZigLLVM_ArchType arch) {
         case ZigLLVM_ppc:
         case ZigLLVM_ppc64:
         case ZigLLVM_ppc64le:
+        case ZigLLVM_xtensa:
             return "sp";
 
         case ZigLLVM_wasm32:
@@ -900,6 +904,7 @@ bool target_is_arm(const ZigTarget *target) {
         case ZigLLVM_wasm32:
         case ZigLLVM_wasm64:
         case ZigLLVM_xcore:
+        case ZigLLVM_xtensa:
         case ZigLLVM_ppc:
         case ZigLLVM_ppc64:
         case ZigLLVM_ve:

@@ -8700,6 +8700,9 @@ static void define_builtin_types(CodeGen *g) {
         case ZigLLVM_riscv64:
             add_fp_entry(g, "c_longdouble", 128, LLVMFP128Type(), &g->builtin_types.entry_c_longdouble);
             break;
+        case ZigLLVM_xtensa:
+            add_fp_entry(g, "c_longdouble", 64, LLVMDoubleType(), &g->builtin_types.entry_c_longdouble);
+            break;
         case ZigLLVM_wasm32:
         case ZigLLVM_wasm64:
             add_fp_entry(g, "c_longdouble", 128, LLVMFP128Type(), &g->builtin_types.entry_c_longdouble);

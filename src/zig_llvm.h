@@ -312,6 +312,7 @@ enum ZigLLVM_ArchType {
     ZigLLVM_x86,            // X86: i[3-9]86
     ZigLLVM_x86_64,         // X86-64: amd64, x86_64
     ZigLLVM_xcore,          // XCore: xcore
+    ZigLLVM_xtensa,         // Tensilica Xtensa
     ZigLLVM_nvptx,          // NVPTX: 32-bit
     ZigLLVM_nvptx64,        // NVPTX: 64-bit
     ZigLLVM_le32,           // le32: generic little-endian 32-bit CPU (PNaCl)

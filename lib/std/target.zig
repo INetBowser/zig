@@ -434,6 +434,7 @@ pub const Target = struct {
     pub const systemz = @import("target/systemz.zig");
     pub const wasm = @import("target/wasm.zig");
     pub const x86 = @import("target/x86.zig");
+    pub const xtensa = @import("target/xtensa.zig");
 
     pub const Abi = enum {
         none,
@@ -738,6 +739,7 @@ pub const Target = struct {
             i386,
             x86_64,
             xcore,
+            xtensa,
             nvptx,
             nvptx64,
             le32,
@@ -842,6 +844,7 @@ pub const Target = struct {
                     .thumbeb => ._ARM,
                     .i386 => ._386,
                     .xcore => ._XCORE,
+                    .xtensa => ._XTENSA,
                     .nvptx => ._NONE,
                     .amdil => ._NONE,
                     .hsail => ._NONE,
@@ -901,6 +904,7 @@ pub const Target = struct {
                     .thumbeb => .Thumb,
                     .i386 => .I386,
                     .xcore => .Unknown,
+                    .xtensa => .Unknown,
                     .nvptx => .Unknown,
                     .amdil => .Unknown,
                     .hsail => .Unknown,
@@ -970,6 +974,7 @@ pub const Target = struct {
                     .wasm32,
                     .wasm64,
                     .xcore,
+                    .xtensa,
                     .thumb,
                     .spir,
                     .spir64,
@@ -1026,6 +1031,7 @@ pub const Target = struct {
                     .thumbeb,
                     .i386,
                     .xcore,
+                    .xtensa,
                     .nvptx,
                     .amdil,
                     .hsail,
@@ -1106,6 +1112,7 @@ pub const Target = struct {
                     .i386, .x86_64 => &x86.all_features,
                     .nvptx, .nvptx64 => &nvptx.all_features,
                     .wasm32, .wasm64 => &wasm.all_features,
+                    .xtensa => &xtensa.all_features,
 
                     else => &[0]Cpu.Feature{},
                 };
@@ -1129,6 +1136,7 @@ pub const Target = struct {
                     .i386, .x86_64 => comptime allCpusFromDecls(x86.cpu),
                     .nvptx, .nvptx64 => comptime allCpusFromDecls(nvptx.cpu),
                     .wasm32, .wasm64 => comptime allCpusFromDecls(wasm.cpu),
+                    .xtensa => comptime allCpusFromDecls(xtensa.cpu),
 
                     else => &[0]*const Model{},
                 };
@@ -1526,6 +1534,7 @@ pub const Target = struct {
                 .tce,
                 .tcele,
                 .xcore,
+                .xtensa,
                 .le32,
                 .le64,
                 .amdil,
