@@ -2,9 +2,11 @@
 
 ## Prerequisites
 
-cmake, ninja
+`gcc`, `cmake`, `ninja`, (maybe [`xtensa-esp32-elf-gcc`](https://docs.espressif.com/projects/esp-idf/en/v3.3.4/get-started/linux-setup.html#toolchain-setup) for its linker)
 
 ## Getting Started
+
+*NOTE:* As install directory for both LLVM and Zig, you can use `~/.local`. Most shells have `~/.local` already in their `$PATH` which means after building & installing, you can directly use `zig`.
 
 ### 1. Building LLVM toolchain
 
@@ -28,14 +30,7 @@ $ make install
 ```
 
 ## How to build a project
-NOTE: Seems like the Xtensa LLVM backend is now capable to generate machine code.
-
-Currently the LLVM backend isn't capable of compiling the generated machine code. So if you try to build your Zig project normally it will fail because the compiler won't be able to compile the code and panic.
-
-In order to compile you need to add these flags to your  ``zig``:
-```-fno-emit-bin -femit-asm```
-
-This will generate a .S file, which you then need to compile with the Xtensa GCC compiler ```xtensa-esp32-elf-gcc```.
-
-## About this project
-Right now it is not entirely possible to compile a binary but I'm working on it.
+Currently you can only build object files with the Xtensa LLVM project because [LLD doesn't support](https://github.com/espressif/llvm-project/issues/11) Xtensa as target (yet). Instead you can use the [`xtensa-esp32-elf-gcc`](https://docs.espressif.com/projects/esp-idf/en/v3.3.4/get-started/linux-setup.html#toolchain-setup) toolchain (to be more specific: `xtensa-esp32-elf-ld`) for linking.
+```
+$ zig build-obj -target xtensa-freestanding -mcpu <esp32,esp8266,esp32-s2> [other options] <your .zig file>
+```
